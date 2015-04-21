@@ -38,12 +38,11 @@ public class RekursiveDreiecke {
     }
     
     public static void drawRekTangles(ViewPort vp, int x1, int y1, int x2, int y2, int x3, int y3){
-    	if (distance(x1,y1,x2,y2)>=3){
-    		drawTriangle(vp, x1, y1, (x1+x2)/2, (y1+y2)/2, (x1+x3)/2, (y1+y3)/2);
+    	if (distance(x1,y1,x2,y2)>=5){
+    		
+    		drawTriangle(vp, (x2+x3)/2, (y2+y3)/2, (x1+x2)/2, (y1+y2)/2, (x1+x3)/2, (y1+y3)/2);
     		drawRekTangles(vp, x1, y1, (x1+x2)/2, (y1+y2)/2, (x1+x3)/2, (y1+y3)/2);
-    		drawTriangle(vp, (x1+x2)/2, (y1+y2)/2, x2, y2, (x2+x3)/2, (y2+y3)/2);
     		drawRekTangles(vp, (x1+x2)/2, (y1+y2)/2, x2, y2, (x2+x3)/2, (y2+y3)/2);
-    		drawTriangle(vp, (x1+x3)/2, (y1+y3)/2, (x2+x3)/2, (y2+y3)/2, x3, y3);
     		drawRekTangles(vp, (x1+x3)/2, (y1+y3)/2, (x2+x3)/2, (y2+y3)/2, x3, y3);
     	}
     }
@@ -52,10 +51,11 @@ public class RekursiveDreiecke {
     
     
     public static void drawFunnyTriangles() {
-    	int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-    	int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-    	ViewPort vp = new ViewPort("Dreiecke", width, height);
-    	drawRekTangles(vp, width/2,  0,  width-100,  height,  100, height);
+    	int width = 1024;
+    	int height = 786;
+    	ViewPort vp = new ViewPort("Can you Triforce ?", width, height);
+    	drawTriangle(vp, width/2,  0,  width,  height,  0, height);
+    	drawRekTangles(vp, width/2,  0,  width,  height,  0, height);
     	// Hier bitte Code einfüllen
     	
     }
